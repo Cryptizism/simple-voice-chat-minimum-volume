@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "simple-voice-chat-minimum-volume",
+  "version": "${version}",
+  "name": "simple-voice-chat-minimum-volume",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/simple-voice-chat-minimum-volume/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "dev.crypts.simpleVoiceChatMinimumVolume.SimpleVoiceChatMinimumVolume"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
