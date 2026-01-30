@@ -12,11 +12,15 @@
   "entrypoints": {
     "main": [
       "dev.crypts.simpleVoiceChatMinimumVolume.SimpleVoiceChatMinimumVolume"
+    ],
+    "voicechat": [
+      "dev.crypts.simpleVoiceChatMinimumVolume.SimpleVoiceChatMinimumVolumePlugin"
     ]
   },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${minecraft_version}",
+    "voicechat_api": ">=${voicechat_api_version}"
   }
 }
