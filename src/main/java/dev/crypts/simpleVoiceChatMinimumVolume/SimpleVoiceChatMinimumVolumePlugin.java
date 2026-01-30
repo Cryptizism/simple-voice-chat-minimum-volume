@@ -26,6 +26,7 @@ public class SimpleVoiceChatMinimumVolumePlugin implements VoicechatPlugin {
 
     @Override
     public void initialize(VoicechatApi api) {
+        ConfigManager.load();
         this.voiceChatDistance = api.getVoiceChatDistance();
         this.decoder = api.createDecoder();
         this.encoder = api.createEncoder();
@@ -54,10 +55,10 @@ public class SimpleVoiceChatMinimumVolumePlugin implements VoicechatPlugin {
 
             double distance = speakerPos.distanceTo(listener.getEntityPos());
 
-            if (distance <= this.voiceChatDistance * (1F - SimpleVoiceChatMinimumVolume.MINIMUM_VOLUME)) continue;
+            if (distance <= this.voiceChatDistance * (1F - ConfigManager.getMinimumVolume())) continue;
 
             float distanceVolume = (float) (1F - distance / this.voiceChatDistance);
-            float finalVolume = Math.max(distanceVolume, SimpleVoiceChatMinimumVolume.MINIMUM_VOLUME);
+            float finalVolume = Math.max(distanceVolume, ConfigManager.getMinimumVolume());
 
             short[] pcm = decoder.decode(event.getPacket().getOpusEncodedData());
 
@@ -81,6 +82,6 @@ public class SimpleVoiceChatMinimumVolumePlugin implements VoicechatPlugin {
         float distance = event.getPacket().getDistance();
         float volume = 1F - distance / (float) this.voiceChatDistance;
 
-        if (volume <= SimpleVoiceChatMinimumVolume.MINIMUM_VOLUME) event.cancel();
+        if (volume <= ConfigManager.getMinimumVolume()) event.cancel();
     }
 }

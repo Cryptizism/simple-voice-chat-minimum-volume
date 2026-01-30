@@ -8,7 +8,6 @@ public class SimpleVoiceChatMinimumVolume implements ModInitializer {
 
     public static final String PLUGIN_ID = "simple-voice-chat-minimum-volume";
     public static final Logger LOGGER = LogManager.getLogger(PLUGIN_ID);
-    public static final float MINIMUM_VOLUME = 0.05f;
 
     @Override
     public void onInitialize() {
